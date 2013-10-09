@@ -1,0 +1,123 @@
+\problem[Exercise 5.8.8 (15pts)]
+
+Consider the boundary value problem
+%
+\begin{align}
+	\diff[2]{\phi}{x} &+ \lambda\phi = 0 \label{pde}
+	\shortintertext{with}
+	\phi(0)-\diff{\phi}{x}(0)=0  &\mtxt{and}
+  \phi(1)+\diff{\phi}{x}(1)=0.\label{bc}
+\end{align}
+%
+\begin{enumerate}[(a)]
+  \item Using the Rayleigh Quotient, show that $\lambda \geq 0$.
+        Why is $\lambda > 0$?
+  \item Prove that eigenfunctions corresponding to different
+        eigenvalues are orthogonal.
+  \item Show that \[ \tan \sqrt \lambda = \frac{2\sqrt\lambda}{\lambda-1}. \]
+        Determine the eigenvalues graphically. Estimate the large eigenvalues.
+  \item Solve
+        \begin{align}
+          \diffp{u}{t} &= k \diffp[2]{u}{x}
+          \shortintertext{with}
+          u(0,t)-\diffp{u}{x}(0,t)
+          = 0 \mc u(1,t)&+\diffp{u}{x}(1,t)
+          = 0  \mtxt[,]{and} u(x,0)=f(x).
+        \end{align}
+        You may call the relevant eigenfunctions $\phi_n(x)$
+        and assume they are known.
+\end{enumerate}
+
+\solution{
+\begin{enumerate}[(a)]
+  \item %(a)
+  With $p=1$, $q=0$, $\s=1$, the Rayleigh quotient for \eqref{pde} becomes
+  \[\l = \frac{ \eval{-\h\h'}{0}{1} + \Int{[\h']^2}{0}{1} }{ \Int{\h^2}{0}{1} }. \]
+
+  Since the boundary conditions imply that $-\h_1'=\h_1$ and $\h_0'=\h_0$,
+   \[\eval{-\h\h'}{0}{1} = [-\h_1 \h'_1] - [-\h_0\h_0'] = [\h_1 \h_1] + [\h_0\h_0] = \h_1^2 + \h_0^2 \geq 0. \]
+
+  Thus \[  \l = \frac{ \h_1^2 + \h_0^2 + \Int{[\h']^2}{0}{1} }{ \Int{\h^2}{0}{1} } \geq 0. \]
+
+  Since $\l=0$ only if $\h_1^2 + \h_0^2 = -\Int{[\h']^2}{0}{1}$,
+  which in turn implies the eigenfunction $\h \equiv 0$, a contradiction.
+  So \l[>0].
+
+  \item %(b)
+  Orthogonality results directly from noticing that \eqref{pde} subject to the boundary conditions in \eqref{bc}
+  is a regular Sturm-Liouville eigenvalue problem. Without relying on other theorems, however, we prove orthogonality by deriving an
+  expression that relates any two of its eigenvalues.
+
+  Let $\l_m$ and $\l_n$ be eigenvalues of \eqref{pde} with corresponding eigenfunctions $\h_m$ and $\h_n$. Then we have
+  \begin{align}
+    \phi_m'' + \lambda_m \phi_m = 0      \label{m}
+    \shortintertext{and}
+    \phi_n'' + \lambda_n \phi_n = 0.  \label{n}
+  \end{align}
+  Multiplying \eqref{m} by $\h_n$ and \eqref{n} by $\h_m$ and subtracting yields
+  $\h_m''\h_n + \l_m\h_m\h_n - \h_n''\h_m - \l_n\h_n\h_m=0$, so
+  \begin{align*}
+    \l_m\h_m\h_n - \l_n\h_n\h_m &= \h_n''\h_m -\h_n\h_m''\\
+    (\l_m-\l_n)\h_n\h_m &= \h_n''\h_m-\h_n\h_m''.
+  \end{align*}
+  Integrating, we have
+  \begin{align*}
+      (\l_m-\l_n) \Int{\h_n\h_m}{0}{1}
+      &= \Int{\h_n''\h_m-\h_n\h_m''}{0}{1} \\
+      &= \Int{\h_n''\h_m+(\h_n'\h_m'-\h_n'\h_m')-\h_n\h_m''}{0}{1} \\
+      &= \Int{(\h_n''\h_m+\h_n'\h_m')-(\h_n'\h_m'+\h_n\h_m'')}{0}{1} \\
+      &= \Int{\D{}{x}[\h_n'\h_m]-\D{}{x}[\h_n\h_m']}{0}{1} \\
+      &= \Int{\D{}{x}[\h_n'\h_m]}{0}{1} - \Int{\D{}{x}[\h_n\h_m']}{0}{1} \\
+      &= \eval{\h_n'\h_m}{0}{1} - \eval{\h_n\h_m'}{0}{1} \\
+      &= \eval{\h_n'\h_m-\h_n\h_m'}{0}{1} \\
+      &= \Eval{\h_n'\h_m-\h_n\h_m'}{1} - \Eval{\h_n'\h_m-\h_n\h_m'}{0}\\
+      &= \Eval{-\h_n\h_m+\h_n\h_m}{1} - \Eval{\h_n\h_m-\h_n\h_m}{0} \tag*{$\L[\text{\small{from the boundary conditions \eqref{bc}}}\R]$}\\
+      &= 0
+  \end{align*}
+
+  Thus if $m \neq n$ then $\Int{\h_n\h_m}{0}{1}=0$,
+  and for arbitrary $m$ and $n$ the eigenfunctions $\h_m$ and $\h_n$ corresponding to
+  eigenvalues $\l_m$ and $\l_n$ are orthogonal to each other.$\hfill\qed$
+
+  \item %(d)
+  Keeping in mind that $\l>0$, we impose the boundary conditions to the spatial problem's general solution and its derivative
+  \begin{align*}
+    \h(x) &= c_1 \cos \sl x + c_2 \sin \sl x\\
+    \h'(x) &= -c_1 \sl \sin \sl x + c_2 \sl \cos \sl x
+  \end{align*}
+  to yield $c_1 = c_2 \sl$, implying that the eigenfunction is any multiple of $\h(x)=\sl \cos \sl x + \sin \sl x$.
+
+  Applying the second boundary condition, we have
+  \begin{align}
+    \h(1) &= \h'(1)  \notag\\
+    c_2 \L[\sl \cos \sl + \sin \sl \R] &= -c_2 \L[-\l \sin \sl + \sl \cos \sl \R],\notag
+    \shortintertext{and thus}
+    2\sl \cos \sl &= (\l - 1) \sin \sl \label{satisfyme}
+    \shortintertext{and since $\cos \sl \neq 0$,}
+    \tan \sl &= \frac{ 2 \sl }{ \l - 1 } \mtxt[,]{as desired.}\notag
+  \end{align}
+  Division by $\cos \sl$ is possible because if $\cos \sl = 0$, then $\sin \sl = \pm 1 \neq 0$, in which case \eqref{satisfyme} would not be satisfied, since the regularity of \eqref{pde} and \eqref{bc} ensures there are infinite eigenvalues.
+
+
+  To determine the eigenvalues graphically, we note that, letting $s=\sl>0$ and $f(s) =\frac{2s}{s^2-1}$, we have \\
+  $f'(s) =-\frac{2(s^2+1)}{(s^2-1)^2}<0$. Thus there is a horizontal asymptote at $f(s)\!=\!0$, a vertical asymptote at $s\!=\!1$, \\
+  $f(s) \gtrless 0$ when $s \gtrless 1$, and $f$ is everywhere decreasing, as illustrated in Figure~\ref{eigenvalues}.
+
+  \begin{figure}[ht!]
+    \centering
+    \input{problems/plot.tex}
+    \caption{Graphical determination of eigenvalues.}
+    \label{eigenvalues}
+  \end{figure}
+
+  We note from the figure that the graphs of $\tan \sl$ and $\frac{ 2 \sl }{ \l-1 }$ meet between 1 and \Frac{\pi}{2} and that as $n$ grows, solutions approach those of $\tan \sl = 0$. That is, as $n \to \infty$, $\l_n \to [(n-1)\pi]^2$. Thus for large $n$ we have eigenvalues $\l_n \sim (n-1)^2\pi^2$.
+
+  \item %(e)
+  From the preceding work, we know the problem in \eqref{pde} and \eqref{bc} has a product solution
+   \[  u(x,t) = \infsum{1} a_n \L( \sl[_n] \cos \sl[_n]x + \sin \sl[_n]x \R) e^{-\l_nt} \]
+  such that
+  \[  \tan \sl[_n] = \frac{2\sl[_n]}{\l_n-1} \]
+  with $a_n$ determined by imposing the initial condition and simplifying by appeal to the orthogonality established in (b), yielding
+  \[ a_n = \frac{\Int{f(x)\h_n(x)}{0}{1} }{ \Int{\h^2_n(x)}{0}{1}  }.   \]
+\end{enumerate}
+}

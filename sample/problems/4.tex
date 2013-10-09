@@ -1,0 +1,46 @@
+\problem[5.5.9 (10pts)]
+
+For the eigenvalue problem
+\[ \diff[4]{\phi}{x} + \lambda e^x \phi = 0 \]
+subject to the boundary conditions $\phi(0)=\phi(1)=\phi'(0)=\phi''(1)=0$,
+show that the eigenvalues are less than or equal to zero $(\lambda \leq 0)$, as would be expected in a physical context. Is $\lambda=0$ an eigenvalue?
+
+
+\solution{
+
+To derive the appropriate quotient expression for \l, we multiply the eigenvalue problem by \h[] and integrate, yielding
+%
+\begin{equation}\label{quotient}
+  \l = \frac{\displaystyle -\Int{ \h \D[4]{\h}{x}}{0}{1} }{\displaystyle \Int{\h^2\s}{0}{1}},
+\end{equation}
+%
+where $\s = e^x$. Manipulating the numerator, we integrate by parts letting
+$u = \h$ and $\dd v=\D[4]{\h}{x}\dd x$.
+
+Then $\dd u = \D{\h}{x}\dd x$ and $v = \D[3]{\h}{x}$, and
+\[  \Int{ \h \D[4]{\h}{x}}{0}{1} = \eval{\h \D[3]{\h}{x}}{0}{1} - \Int{\D{\h}{x} \D[3]{\h}{x} }{0}{1} =  \eval{\h\h'''}{0}{1} - \Int{\h' \h''' }{0}{1}.\]
+
+Integrating by parts again with $u = \D{\h}{x}$ and $\dd v = \D[3]{\h}{x}\dd x$, we have $\dd u = \D[2]{\h}{x}\dd x$ and $v = \D[2]{\h}{x}$, and thus
+ \[  \Int{\D{\h}{x} \D[3]{\h}{x} }{0}{1} = \eval{\D{\h}{x} \D[2]{\h}{x}}{0}{1} - \Int{ \L[  \D[2]{\h}{x}  \R]^2 }{0}{1} = \eval{\h'\h''}{0}{1} - \Int{[\h'']^2 }{0}{1}.\]
+
+The numerator of \eqref{quotient} is thus
+\begin{align*}
+  -\L[ \eval{\h \h'''}{0}{1}  - \eval{\h' \h''}{0}{1} + \Int{[\h'']^2}{0}{1}  \R]
+  &= -\eval{\h \h'''}{0}{1}  +\eval{\h' \h''}{0}{1}  -\Int{[\h'']^2}{0}{1}  \\
+  &= -[0-0] + [0-0] - \Int{[\h'']^2}{0}{1}, \tag*{\small{[from the boundary conditions]}}
+\end{align*}
+leaving us with
+\[  \l = \frac{ - \Int{[\h'']^2}{0}{1}}{ \Int{\h^2 e^x}{0}{1}} \leq 0  \mtxt[,]{as expected.}\]
+
+If $\l=0$, then $\Int{[\h'']^2}{0}{1} = 0$, and it would follow that
+\begin{align*}
+  \h'' & \equiv 0 \\
+  \implies \h' & \equiv c   \mtxt[~]{[a constant]}\\
+  \implies \h' & \equiv 0    \mtxt[~]{[from the boundary conditions]}\\
+  \implies \h  & \equiv c   \mtxt[~]{[a constant]}\\
+  \implies \h  & \equiv 0   \mtxt[.]{[from the boundary conditions]}
+\end{align*}
+Thus $\l = 0$ only if $\h \equiv 0$, which is prohibited by assumption since $\h$ is an eigenfunction.
+
+So $\l$ is strictly negative.
+}

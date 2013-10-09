@@ -1,0 +1,63 @@
+\problem[5.5.1g (10pts)]
+
+A Sturm-Liouville eigenvalue problem is called self-adjoint if
+%
+    \[ p \eval{u \diff{v}{x} - v \diff{u}{x}}{a}{b}  = 0 \]
+
+because then \Int{u L(v) - v L(u)}{a}{b} = 0 for any two functions $u$ and $v$ satisfying the boundary conditions.
+
+Under what conditions is the following self-adjoint (if $p$ is constant)?
+%
+    \[  \phi(L) + \alpha\phi(0) + \beta\phi'(0) = 0 \]
+    \[  \phi'(L) + \gamma\phi(0) + \delta\phi'(0) = 0 \]
+
+
+\solution{
+
+Let $u$ and $v$ be any two functions satisfying the above. Since $p=0$ would imply a trivial solution, $p\neq0$. Adopting a subscript notation to signify evaluation such that $f_i=f(i)$, we note that the following must hold:
+%
+\begin{align*}
+	\L[ub'-vu'\R|_0^L&=0	&& u_L+\alpha u_0+\beta u_0'=0  && v_L+\alpha v_0+\beta v_0'=0  \\
+	\implies\L[uv'-vu'\R|_L&=\L[uv'-vu'\R|_0&& u_L'+\gamma u_0+\delta u_0'=0&& v_L'+\gamma v_0+\delta v_0'=0
+\end{align*}
+
+It follows that
+%
+\begin{align*}
+	u_L	&= 	-\alpha u_0-\beta u_0'	= -(\alpha u_0+\beta u_0'),   	\\
+	u_L'&=	-\gamma u_0-\delta u_0'	= -(\gamma u_0+\delta u_0'),    	\\
+	v_L	&= 	-\alpha v_0-\beta v_0' 	= -(\alpha v_0+\beta v_0'),    	\\
+	v_L'&=	-\gamma v_0-\delta v_0'	= -(\gamma v_0+\delta v_0'),
+\end{align*}
+%
+and hence
+%
+\begin{align*}
+	\L[uv'-vu'\R|_L
+	&= u_L v'_L - v_L u'_L\\
+	&= (\alpha u_0+\beta u_0')(\gamma v_0+\delta v_0')
+      - (\alpha v_0+\beta v_0')(\gamma u_0+\delta u_0')\\
+	&= (\alpha\gamma u_0 v_0+\beta\gamma u_0' v_0
+      + \alpha\delta u_0 v_0'+\beta \delta u_0'v_0')
+		  - (\alpha\gamma u_0v_0+\beta\gamma u_0v_0'
+      + \alpha\delta u_0'v_0+\beta\delta u_0'v_0')\\
+	&= \beta\gamma u_0' v_0 + \alpha\delta u_0 v_0'
+      - \beta\gamma u_0v_0'- \alpha\delta u_0'v_0\\
+	&= \alpha\delta u_0 v_0' -\beta\gamma u_0v_0'
+      - \alpha\delta u_0'v_0 +\beta\gamma u_0' v_0 \\
+	&= (\alpha\delta-\beta\gamma)u_0v_0'
+      - (\alpha\delta-\beta\gamma) u_0' v_0 \\
+	&= (\alpha\delta-\beta\gamma)(u_0v_0' - u_0' v_0 ). \\
+\end{align*}
+
+So the given conditions are self-adjoint if
+%
+\begin{align*}
+	\L[uv'-vu'\R|_L&=\L[uv'-vu'\R|_0\\
+	(\alpha\delta-\beta\gamma)\L(u_0v_0' - v_0u_0' \R) &= u_0v_0' - v_0u_0'\\
+	(\alpha\delta-\beta\gamma)\L[u(0)\D{v}{x}(0) - v(0)\D{u}{x}(0) \R] &= u(0) \D{v}{x}(0) -  v(0)\D{u}{x}(0).
+\end{align*}
+%
+That is, if $\alpha\delta-\beta\gamma =1$.
+}
+

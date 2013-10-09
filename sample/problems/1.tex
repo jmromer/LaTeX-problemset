@@ -1,0 +1,36 @@
+\problem[5.3.8 (5pts)]
+
+Show that $\lambda \geq 0$ for the eigenvalue problem
+
+\[ \diff[2]{\h}{x} + \left( \l - x^2 \right)\h = 0
+\mtxt{with}
+\diff{\h}{x}(0)=0 \mc \diff{\h}{x}(1)=0. \]
+
+Is $\lambda = 0$ an eigenvalue?
+
+
+\solution{
+
+The Rayleigh quotient is
+
+\begin{formula}[Rayleigh Quotient]
+		\lambda = \frac{\eval{-p(x) \phi(x)\phi'(x)}{a}{b} + \Int{p(x) [\phi'(x)]^2 - q(x) [\phi(x)]^2}{a}{b}}{\Int{[\phi(x)]^2\sigma(x)}{a}{b}}.
+\end{formula}
+
+With $p=1$, $q=-x^2$, and $\sigma=1$, the boundary conditions imply
+$\eval{-\h\h'}{0}{1}=0$,
+so our eigenvalues must satisfy
+
+\begin{equation*}
+	\lambda
+  = \frac{ \eval{-\phi \phi'}{0}{1}
+    + \Int{[\phi']^2 + x^2 \phi^2}{0}{1} }{\Int{\phi^2}{0}{1}}
+	= \frac{ \Int{[\phi']^2}{0}{1}
+    + \Int{[x\phi]^2}{0}{1} }{\Int{\phi^2}{0}{1}}
+	\geq 0.
+\end{equation*}
+
+Furthermore, if $\lambda = 0$ then $\Int{[\phi']^2}{0}{1} = - \Int{[x\phi]^2}{0}{1}$. That is possible only if $\phi'(x)\equiv0$, which in turn implies that $\phi(x)\equiv c$ for some constant $c$.
+
+From the boundary conditions, it must be the case that $c=0$. But this would indicate a trivial solution, and thus $\lambda \neq 0$. So there is no zero eigenvalue.
+}

@@ -1,0 +1,42 @@
+\problem[The Helmholtz Equation (5pts)] % Optional problem description
+
+Use the concepts of wave number and angular frequency in the expression of a one-dimensional classical wave that is traveling to the right and show that this wave function obeys the classical wave equation.
+
+\solution{
+
+\providecommand{\wave}{y} % Denote wave amplitude as y or psi
+
+To show that the functional expression $\wave(x,t)$ of a one-dimensional, rightward-traveling classical wave obeys the classical wave equation
+%
+\begin{formula}[Helmholtz Equation]
+  \PD[2]{\wave}{x} = \frac{1}{v_p^2} \PD[2]{\wave}{t},
+\end{formula}
+%
+it suffices to show that $\wave(x,t)$ is a solution to the one-dimensional Helmholtz equation.
+
+Expressed in trigonometric form, the wave function is
+$\wave = A \cos(\omega t - kx)$, with angular frequency
+$\omega = 2\pi f$ and wave number $k = \Frac{2\pi}{\lambda}$.
+
+Since the wavelength
+\begin{equation}
+  \d \lambda = \frac{v_p}{f},
+\end{equation}
+
+$\d k = \frac{2\pi f}{v_p} = \frac{\omega}{v_p}$. The wave function is then $\d \wave = A \cos\L(\omega t - \frac{\omega}{v_p}x\R)$.
+
+\begin{mathtable}[caption=true,title={Table One},label={one}]{ccc}
+  \a & \b & \c\\
+  \midrule
+  \d & \ep & \t\\
+\end{mathtable}
+
+Substituting into the Helmholtz equation, we have Figure~\ref{fig1}.
+\begin{figure}[ht!]
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=1in]{problems/figure.jpg}
+  \caption{A rather boring figure.}
+  \label{fig1}
+\end{figure}
+}

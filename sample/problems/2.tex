@@ -1,0 +1,45 @@
+\problem[5.4.5 (10pts)]
+Consider
+\[
+	\r \PD[2]{u}{t} = T_0 \PD[2]{u}{x} + \a u, \mtxt{subject to}
+	\begin{array}{cc}
+		u(0,t)=0	&	u(x,0)=f(x)\\
+		u(L,t)=0	&	u_t(x,0)=g(x)
+	\end{array}
+\]
+where $\rho(x)>0$, $\alpha(x)<0$, and $T_0$ is constant. Assume the appropriate eigenfunctions are known. Solve the initial value problem.
+
+\solution{
+Since the partial differential equation and its boundary conditions are homogeneous, we may separate variables
+to yield \[ \frac{1}{h}\D[2]{h}{t} = \frac{T_0}{\rho\phi} \D[2]{\phi}{x} + \frac{\alpha}{\rho} = -\lambda. \]
+
+The time problem is thus $h''+\lambda h=0$, and the spatial problem is $T_0 \h'' + \alpha\phi + \lambda\rho\phi = 0$ subject to the boundary conditions $\phi(0)=\phi(L)=0$.
+
+With $p \equiv T_0$, $q=\alpha(x)<0$, and $\sigma=\rho(x)>0$, the Rayleigh quotient evaluates to
+\begin{equation*}
+	\lambda = \frac{T_0 \Int{[\phi']^2}{0}{L} + \Int{s\phi^2}{0}{L}}{ \Int{\phi^2\rho}{0}{L}} \geq 0  \mtxt[,]{where $s=-\alpha>0$.}
+\end{equation*}
+
+There is a zero eigenvalue \l[=0] only if
+$T_0 = -\frac{\Int{s\phi^2}{0}{L} }{ \Int{[\phi']^2}{0}{L}}$.
+Since the physical context of the problem implies $T_0>0$,
+all eigenvalues $\l>0$.
+
+The time-dependent problem thus has a solution of the form
+\[ 	h_n(t)=a_n \cos \sln t + b_n \sin \sln t  \]
+
+We assume the eigenfunctions $\phi_n$ are known, so our PDE has a product solution
+\begin{equation*}
+	u(x,t) 	= \infsum{1} \phi_n h_n = \infsum{1} \phi_n \L(a_n \cos \sln t + b_n \sin \sln t \R)
+\end{equation*}
+
+Applying the initial conditions to $\displaystyle u(x,0)=\infsum{1}a_n\phi_n=f(x)$, and to $\displaystyle u_t(x,0)=\infsum{1}b_n\sqrt{\lambda_n}\phi_n\! = g(x)$ yields coefficients determined by
+\begin{align*}
+	\Int{f(x)\phi_m(x)\rho(x)}{0}{L}
+	&=	\Int{\infsum{1}a_n\phi_n(x)\phi_m(x)\rho(x)}{0}{L}\\
+	\implies a_n &= \frac{\Int{f(x)\phi_n(x)\rho(x)}{0}{L}}{\Int{[\phi_n(x)]^2\rho(x)}{0}{L}}, \tag*{\small{[by orthogonality]}}
+	\shortintertext{and similarly,}
+	b_n \sln &= \frac{\Int{g(x)\phi_n(x)\rho(x)}{0}{L}}{\Int{[\phi_n(x)]^2\rho(x)}{0}{L}}.
+\end{align*}
+
+}
