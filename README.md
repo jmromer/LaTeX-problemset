@@ -13,7 +13,8 @@ The result is a document that combines the elegance of LaTeX with the compactnes
 	* For more details see also [this excellent blog post][todonotes_blog]
 	* Todos are hidden by declaring the `final` option (see below)
 * Convenience control sequences
-	* 	Take much of the repetitive drudgery out of typing up psets. (Other forms of drudgery it can't help with, alas.)
+	* 	Take much of the repetitive drudgery out of typing up psets.	
+		(Other forms of drudgery it can't help with, alas.)
 	
 ### Options
 ```
@@ -33,21 +34,15 @@ The result is a document that combines the elegance of LaTeX with the compactnes
 For output samples of the commands described below see [here](sample-brief/Problem Set 1.pdf) (a toy example) and [here](sample/MTH 427 Problem Set 6.pdf) (a real one).
 
 ### Header
-`\header[shortname]{name}{course}{assignment}{date}`
-  	
-Creates the document header. 
-
-Example:
+`\header[shortname]{name}{course}{assignment}{date}`: Creates the document header. `shortname` is an optional string that appears to the left of the page number. (Numbering is omitted on the first page).
   	
 ```
 \heading[Romer]{Jacob Romer}{Math 427. Partial Differential Equations}{Assignment 6}{November 28, 2012}
 ```
-`shortname` is an optional string that appears to the left of the page number. (Numbering is omitted on the first page).
+
 
 ### Problem		
-`\problem[description]`
-
-Marks the beginning of a problem, with optional descriptive text.
+`\problem[description]`: Marks the beginning of a problem, with optional descriptive text.
 
 ```
 \problem[5.3.8 (5pts)]
@@ -57,8 +52,7 @@ Is $\lambda = 0$ an eigenvalue?
 
 ### Solution
 	
-`\solution{}`
-
+`\solution{}`: 
 Encloses the solution, which can be hidden with the `worksheet` document class option. 
   
 * **NB**: This is incompatible with `verbatim`, which can't be directly called from within a control sequence. 
@@ -69,8 +63,7 @@ Encloses the solution, which can be hidden with the `worksheet` document class o
   	
 ### Formula Environment
 
-`\begin{formula}[name]` 
-
+`\begin{formula}[name]`: 
 Takes an optional argument for a named equation. Otherwise names formulas sequentially (Formula 1, Formula 2, etc.).
 
 ```
@@ -80,9 +73,9 @@ Takes an optional argument for a named equation. Otherwise names formulas sequen
 ```
   
 ### Mathtable Environment
-`\begin{mathtable}[options]{columns}` 
 
-Essentially `booktabs`-style table, but DRYed up for entries in math mode. This combines the syntatic simplicity of using the `array` package for your table with the prettiness of the `booktabs` table. 
+`\begin{mathtable}[options]{columns}`: 
+Essentially a `booktabs`-style table, but DRYed up for entries in math mode. This combines the syntatic simplicity of using the `array` package for your table with the prettiness of the `booktabs` table. 
 
 ```
 \begin{mathtable}[caption=true,title={Some Greek letters},label={one}]{ccc}
@@ -94,6 +87,7 @@ Essentially `booktabs`-style table, but DRYed up for entries in math mode. This 
 ```
 
 ###Convenience Macros
+
   * Greek Letters
   * Theorem-Style Environments
   * Mathematical Symbols
