@@ -97,8 +97,6 @@ Essentially a `booktabs`-style table, but DRYed up for entries in math mode. Thi
     * Linear Algebra
     * Vector Calculus
 
-See the [wiki][problemset_wiki] (in the works) for a full listing.
-
 [todonotes_docs]: http://www.tex.ac.uk/ctan/macros/latex/contrib/todonotes/todonotes.pdf
 [todonotes_blog]: http://latexforhumans.wordpress.com/2009/03/13/todonotes
 [problemset_wiki]: http://github.com/jmromer/LaTeX-problemset/wiki
