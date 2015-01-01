@@ -3,7 +3,7 @@
 Consider the boundary value problem
 %
 \begin{align}
-	\diff[2]{\phi}{x} &+ \lambda\phi = 0 \label{pde}
+	\diff[2]{\phi}{x} &+ \lambda\phi = 0 \label{pdeEx5}
 	\shortintertext{with}
 	\phi(0)-\diff{\phi}{x}(0)=0  &\mtxt{and}
   \phi(1)+\diff{\phi}{x}(1)=0.\label{bc}
@@ -31,7 +31,7 @@ Consider the boundary value problem
 \solution{
 \begin{enumerate}[(a)]
   \item %(a)
-  With $p=1$, $q=0$, $\s=1$, the Rayleigh quotient for \eqref{pde} becomes
+  With $p=1$, $q=0$, $\s=1$, the Rayleigh quotient for \eqref{pdeEx5} becomes
   \[\l = \frac{ \eval{-\h\h'}{0}{1} + \Int{[\h']^2}{0}{1} }{ \Int{\h^2}{0}{1} }. \]
 
   Since the boundary conditions imply that $-\h_1'=\h_1$ and $\h_0'=\h_0$,
@@ -44,11 +44,11 @@ Consider the boundary value problem
   So $\l>0$.
 
   \item %(b)
-  Orthogonality results directly from noticing that \eqref{pde} subject to the boundary conditions in \eqref{bc}
+  Orthogonality results directly from noticing that \eqref{pdeEx5} subject to the boundary conditions in \eqref{bc}
   is a regular Sturm-Liouville eigenvalue problem. Without relying on other theorems, however, we prove orthogonality by deriving an
   expression that relates any two of its eigenvalues.
 
-  Let $\l_m$ and $\l_n$ be eigenvalues of \eqref{pde} with corresponding eigenfunctions $\h_m$ and $\h_n$. Then we have
+  Let $\l_m$ and $\l_n$ be eigenvalues of \eqref{pdeEx5} with corresponding eigenfunctions $\h_m$ and $\h_n$. Then we have
   \begin{align}
     \phi_m'' + \lambda_m \phi_m = 0      \label{m}
     \shortintertext{and}
@@ -96,7 +96,9 @@ Consider the boundary value problem
     \shortintertext{and since $\cos \sl \neq 0$,}
     \tan \sl &= \frac{ 2 \sl }{ \l - 1 } \mtxt[,]{as desired.}\notag
   \end{align}
-  Division by $\cos \sl$ is possible because if $\cos \sl = 0$, then $\sin \sl = \pm 1 \neq 0$, in which case \eqref{satisfyme} would not be satisfied, since the regularity of \eqref{pde} and \eqref{bc} ensures there are infinite eigenvalues.
+  Division by $\cos \sl$ is possible because if $\cos \sl = 0$, then $\sin \sl =
+  \pm 1 \neq 0$, in which case \eqref{satisfyme} would not be satisfied, since
+  the regularity of \eqref{pdeEx5} and \eqref{bc} ensures there are infinite eigenvalues.
 
 
   To determine the eigenvalues graphically, we note that, letting $s=\sl>0$ and $f(s) =\frac{2s}{s^2-1}$, we have \\
@@ -105,7 +107,7 @@ Consider the boundary value problem
 
   \begin{figure}[ht!]
     \centering
-    \input{problems/plot.tex}
+    \input{example_pset_problems/plot.tex}
     \caption{Graphical determination of eigenvalues.}
     \label{eigenvalues}
   \end{figure}
@@ -113,7 +115,7 @@ Consider the boundary value problem
   We note from the figure that the graphs of $\tan \sl$ and $\frac{ 2 \sl }{ \l-1 }$ meet between 1 and \Frac{\pi}{2} and that as $n$ grows, solutions approach those of $\tan \sl = 0$. That is, as $n \to \infty$, $\l_n \to [(n-1)\pi]^2$. Thus for large $n$ we have eigenvalues $\l_n \sim (n-1)^2\pi^2$.
 
   \item %(e)
-  From the preceding work, we know the problem in \eqref{pde} and \eqref{bc} has a product solution
+  From the preceding work, we know the problem in \eqref{pdeEx5} and \eqref{bc} has a product solution
    \[  u(x,t) = \infsum{1} a_n \L( \sl[_n] \cos \sl[_n]x + \sin \sl[_n]x \R) e^{-\l_nt} \]
   such that
   \[  \tan \sl[_n] = \frac{2\sl[_n]}{\l_n-1} \]
