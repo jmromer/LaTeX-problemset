@@ -103,7 +103,7 @@ which produces
 
 ![mathtable](images/mathtable.png)
 
-###Convenience Macros
+### Convenience Macros
 
   * Greek Letters
   * Theorem-Style Environments
