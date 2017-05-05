@@ -33,11 +33,6 @@ compactness and relative informality of a hand-written document.
 
 ## Control Sequences
 
-#### Sample Output
-For output samples of the commands described below see
-[here](sample-brief/Problem Set 1.pdf) (a toy example)
-and [here](sample/MTH 427 Problem Set 6.pdf) (a real one).
-
 ### Header
 `\header[<shortname>]{<name>}{<course>}{<assignment>}{<date>}`: Creates the
 document header. `shortname` is an optional string that appears to the left
