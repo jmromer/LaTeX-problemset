@@ -32,7 +32,6 @@
 \RequirePackage{amssymb}    % Required.
 \RequirePackage{booktabs}   % Required. Used for mathtable environment.
 \RequirePackage{esdiff}     % For derivatives and partial derivatives
-\RequirePackage{mathtools}  % Optional. Used for \shortintertext.
 \RequirePackage{fancyhdr}   % Required. For customizing headers/footers.
 \RequirePackage{lastpage}   % Required. For page count in header/footer.
 \RequirePackage{xcolor}     % Required. For setting the color of hyperlinks
