@@ -336,14 +336,18 @@
 \providecommand{\Int}[4][x]{\ensuremath{\int_{#3}^{#4}\!{#2}\,\mathrm{d}{#1}}}      % Integrate {1} from {2} to {3} with respect to [x]
 \providecommand{\Lim}[3][\infty]{\ensuremath{\displaystyle \lim_{{#2}\to{#1}}\!\!{#3}}} % Take the limit from {1} to [infinity] of {3} \Lim{x}{f(x)}
 \providecommand{\Frac}[2]{\ensuremath{\,^{#1}\!/\!_{#2}}}                        % Slanted fraction with proper spacing. Useful for in-line display of fractions.
-\providecommand{\eval}[3]{\ensuremath{\left[ #1 \right\vert_{#2}^{#3}}}
-\renewcommand{\L}{\left}                       % for left-hand right-sizing
-\providecommand{\R}{\right}                    % for right-hand right-sizing
+\providecommand{\eval}[3]{
+  \ensuremath{%
+    \left[#1 \right\rvert_{#2}^{#3}
+  } % chktex 9
+}%
+\renewcommand{\L}{\left}                       % for left-hand right-sizing  % chktex 43
+\providecommand{\R}{\right}                    % for right-hand right-sizing % chktex 43
 \providecommand{\D}{\diff}                     % for writing derivatives
 \providecommand{\PD}{\diffp}                   % for writing partial derivatives
 \providecommand{\full}{\displaystyle}          % Forces display style in math mode
 \providecommand{\Deg}{\ensuremath{^\circ}}         % for adding a degree symbol, even if not in math mode
-\providecommand{\abs}[1]{\left\vert#1 \right\vert}    % Absolute Value
+\providecommand{\abs}[1]{\left\lvert#1 \right\rvert}    % Absolute Value
 \providecommand{\norm}[1]{\left\Vert#1 \right\Vert} % Norm (vector magnitude)
 \providecommand{\e}[1]{\ensuremath{\times 10^{#1}}} % Scientific Notation with times symbol
 \providecommand{\E}[1]{\ensuremath{10^{#1}}}   % Scientific Notation
@@ -353,7 +357,7 @@
 
 % ============= Probability and Statistics =============
 \providecommand{\prob}[1]{\ensuremath{P\!\left(#1\right)} }
-\providecommand{\cndprb}[2]{\ensuremath{P\!\left(#1 \left\vert  #2 \right.  \right)} }
+\providecommand{\cndprb}[2]{\ensuremath{P\!\left(#1 \left\lvert  #2 \right.  \right)} }
 \providecommand{\cov}[1]{\ensuremath{\text{Cov}\!\left(#1\right)} }
 \providecommand{\ex}[1]{\ensuremath{E\!\left[#1\right]} }
 
@@ -371,5 +375,6 @@
 \providecommand{\unitvecs}[1]{\bm{\hat{#1}}}
 \providecommand{\unitvect}[1]{\hat{\textbf{#1}}}
 \providecommand{\Div}[1]{\vecs{\del} \cdot \vect{#1}}
-\providecommand{\Curl}[1]{\vecs{\del} \times \vect{#1}}
+\providecommand{\Curl}[1]{\vecs{\del} \times\vect{#1}}
 \providecommand{\Grad}{\vecs{\del}}
+ % chktex 17
