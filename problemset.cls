@@ -57,14 +57,14 @@
 \setlength{\parindent}{0pt}          % Indent for first line of new paragraphs.
 
 % Smaller verbatim type size
-\let\VERBATIM\verbatim
+\let\VERBATIM\verbatim%
 \def\verbatim{%
   \def\verbatim@font{\small\ttfamily}%
 \VERBATIM}
 
 % =============   Caption Modifications   =============
 \usepackage[small]{caption}
-\usepackage[footnotesize]{subcaption}
+\usepackage[font={footnotesize}]{subcaption}
     % For no visible number, use: \caption*{Unnumbered figure caption.}
 \captionsetup[table]{labelformat=simple, labelsep=period, labelfont=bf}
 \captionsetup[figure]{labelformat=simple, labelsep=period, labelfont=bf}
@@ -80,7 +80,7 @@
 % ============= Gets Document Info, Generates Heading =============
 \providecommand{\heading}[5][]{
   \thispagestyle{empty}
-  \listoftodos
+  \listoftodos%
   \clearpage
   \pagenumbering{arabic}
   %
@@ -94,7 +94,7 @@
       \hypertarget{@assignment}{
         \textbf{\assignment}
       }\\
-      \authorname
+      \authorname%
     \end{flushleft}
   \end{minipage}
   \begin{minipage}{0.5\textwidth}
@@ -116,7 +116,7 @@
   \hyperlink{@assignment}{%
     \small{%
       \color{black}{%
-        \assignment
+        \assignment%
       }
     }
   }
@@ -125,7 +125,7 @@
 \cfoot{%
 \fancyplain{}{%
     \small{%
-      \coursename
+      \coursename%
     }
 }
 }
@@ -165,7 +165,7 @@
 \hfill\qqed\vspace{0.1em}
 \else%
 \pagebreak%
-\fi
+\fi%
 }
 
 % ============= Chapter, Section, Item Commands =============
@@ -220,14 +220,14 @@
 }
 
 % ============= Math Table =============
-\newif\ifcaption
-\pgfkeys
+\newif\ifcaption%
+\pgfkeys%
 {
-  /mypkg/title/.store in=\Caption,% Any value assigned to title will be stored in \Caption
-  /mypkg/title= ,              % Initialize so \Caption exists
-   /mypkg/label/.store in=\Label,  % Any value assigned to label will be stored in \Label
-   /mypkg/label= ,              % Initialize so \Label exists
-   /mypkg/caption/.is if=caption,  % Declare a boolean, defaults to false
+  /mypkg/title/.store in=\Caption,  % Any value assigned to title will be stored in \Caption
+  /mypkg/title= ,                   % Initialize so \Caption exists
+  /mypkg/label/.store in=\Label,    % Any value assigned to label will be stored in \Label
+  /mypkg/label= ,                   % Initialize so \Label exists
+  /mypkg/caption/.is if=caption,    % Declare a boolean, defaults to false
 }
 \newenvironment{mathtable}[2][]{
   \pgfkeys{/mypkg/.cd, #1}%
@@ -270,23 +270,23 @@
 % Associated environments (for numbered theorem environments)
 \newenvironment{theorem}[2][]{\begin{thm}[#1]\label{#2}}{\end{thm}}
 \newenvironment{lemma}[2][]{\begin{lma}[#1]\label{#2}}{\end{lma}}
-\newenvironment{corollary}[2][]{\begin{crl}[#1]\label{#2}}{\end{thm}}
-\newenvironment{proposition}[2][]{\begin{prp}[#1]\label{#2}}{\end{crl}}
+\newenvironment{corollary}[2][]{\begin{crl}[#1]\label{#2}}{\end{crl}}
+\newenvironment{proposition}[2][]{\begin{prp}[#1]\label{#2}}{\end{prp}}
 \newenvironment{conjecture}[2][]{\begin{cnj}[#1]\label{#2}}{\end{cnj}}
 \newenvironment{algorithm}[2][]{\begin{alg}[#1]\label{#2}}{\end{alg}}
 
-\theoremstyle{remark}          % Italic label, roman letters
-\newtheorem{rmk}{Remark}[section]    % Numbered by section. Remarks are used to expand on and integrate material.
-\newtheorem*{note}{Note}        % Un-numbered. Notes are used to comment on specific elements of the material.
+\theoremstyle{remark}             % Italic label, roman letters
+\newtheorem{rmk}{Remark}[section] % Numbered by section. Remarks are used to expand on and integrate material.
+\newtheorem*{note}{Note}          % Un-numbered. Notes are used to comment on specific elements of the material.
 \newtheorem*{caveat}{Caveat}      % Un-numbered. Caveats are used to guide the reader away from a common error.
-\newtheorem*{warning}{Warning}      % Un-numbered. Warnings are used to guide away from especially egregious errors.
+\newtheorem*{warning}{Warning}    % Un-numbered. Warnings are used to guide away from especially egregious errors.
 
-\theoremstyle{definition}        % Bold label, roman letters
+\theoremstyle{definition}              % Bold label, roman letters
 \newtheorem{dfn}{Definition}[section]  % Numbered by section. Definitions of concepts and terms.
-\newtheorem{exm}{Example}[section]    % Numbered by section. Illustrative examples.
+\newtheorem{exm}{Example}[section]     % Numbered by section. Illustrative examples.
 \newtheorem{smm}{Summary}[subsection]  % Numbered by subsection. For section summaries.
-\newtheorem*{question}{Question}    % Un-numbered. For questions to motivate further analysis.
-\newtheorem*{speculation}{Speculation}  % Un-numbered. For questions that arise but will not be immediately answered.
+\newtheorem*{question}{Question}       % Un-numbered. For questions to motivate further analysis.
+\newtheorem*{speculation}{Speculation} % Un-numbered. For questions that arise but will not be immediately answered.
 
 % Associated environments (for numbered theorem environments)
 \newenvironment{remark}[2][]{\begin{rmk}[#1]\label{#2}}{\end{rmk}}
@@ -324,7 +324,7 @@
 \providecommand{\QQ}{\ensuremath{\mathbb{Q}}}
 \providecommand{\RR}{\ensuremath{\mathbb{R}}}
 \providecommand{\CC}{\ensuremath{\mathbb{C}}}
-\providecommand{\pd}{\partial}    % 'dee' symbol for partial derivatives
+\providecommand{\pd}{\partial}          % 'dee' symbol for partial derivatives
 \providecommand{\dd}{\mathrm{d}} % 'dee' symbol for ordinary derivatives
 \providecommand{\x}{\times}
 \providecommand{\n}{\scalebox{0.6}[1.0]{\ensuremath{-}}}
@@ -332,25 +332,25 @@
 
 
 % ============= Mathematical Macros =============
-\providecommand{\Sum}[3][n]{\ensuremath{\sum_{{#1}={#2}}^{#3}}}     % Sum from [n]={1}to{2}.     \Sum{1}{10}
-\providecommand{\infsum}[2][n]{\ensuremath{\sum_{{#1}={#2}}^\infty}}  % Infinite sum from [n]={1}    \infsum{1}
-\providecommand{\Int}[4][x]{\ensuremath{\int_{#3}^{#4}\!{#2}\,\mathrm{d}{#1}}}   % Integrate {1} from {2} to {3} with respect to [x]
+\providecommand{\Sum}[3][n]{\ensuremath{\sum_{{#1}={#2}}^{#3}}}                     % Sum from [n]={1}to{2}.     \Sum{1}{10}
+\providecommand{\infsum}[2][n]{\ensuremath{\sum_{{#1}={#2}}^\infty}}                  % Infinite sum from [n]={1}  \infsum{1}
+\providecommand{\Int}[4][x]{\ensuremath{\int_{#3}^{#4}\!{#2}\,\mathrm{d}{#1}}}      % Integrate {1} from {2} to {3} with respect to [x]
 \providecommand{\Lim}[3][\infty]{\ensuremath{\displaystyle \lim_{{#2}\to{#1}}\!\!{#3}}} % Take the limit from {1} to [infinity] of {3} \Lim{x}{f(x)}
-\providecommand{\Frac}[2]{\ensuremath{\,^{#1}\!/\!_{#2}}}            % Slanted fraction with proper spacing. Usefule for in-line display of fractions.
-\providecommand{\eval}[3]{\ensuremath{\left[ #1 \right \vert_{#2}^{#3}}}
-\renewcommand{\L}{\left}              % for left-hand right-sizing
-\providecommand{\R}{\right}            % for right-hand right-sizing
-\providecommand{\D}{\diff}            % for writing derivatives
-\providecommand{\PD}{\diffp}          % for writing partial derivatives
-\providecommand{\full}{\displaystyle}      % Forces display style in math mode
-\providecommand{\Deg}{\ensuremath{^\circ}}    % for adding a degree symbol, even if not in math mode
-\providecommand{\abs}[1]{\left\vert #1 \right\vert}   % Absolute Value
-\providecommand{\norm}[1]{\left \Vert #1 \right \Vert}  % Norm (vector magnitude)
-\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}    % Scientific Notation with times symbol
-\providecommand{\E}[1]{\ensuremath{10^{#1}}}  % Scientific Notation
-\renewcommand{\u}[1]{\text{ #1}}        % For inserting units in Roman text
-\providecommand{\mc}{\text{,}\hspace{1em}}    % For inserting comma and space into math mode
-\providecommand{\mtxt}[2][]{#1\hspace{0.5em}\text{#2}\hspace{0.5em}}  % For insterting text into math mode with space on either side. Option for preceding punctuation.
+\providecommand{\Frac}[2]{\ensuremath{\,^{#1}\!/\!_{#2}}}                        % Slanted fraction with proper spacing. Useful for in-line display of fractions.
+\providecommand{\eval}[3]{\ensuremath{\left[ #1 \right\vert_{#2}^{#3}}}
+\renewcommand{\L}{\left}                       % for left-hand right-sizing
+\providecommand{\R}{\right}                    % for right-hand right-sizing
+\providecommand{\D}{\diff}                     % for writing derivatives
+\providecommand{\PD}{\diffp}                   % for writing partial derivatives
+\providecommand{\full}{\displaystyle}          % Forces display style in math mode
+\providecommand{\Deg}{\ensuremath{^\circ}}         % for adding a degree symbol, even if not in math mode
+\providecommand{\abs}[1]{\left\vert#1 \right\vert}    % Absolute Value
+\providecommand{\norm}[1]{\left\Vert#1 \right\Vert} % Norm (vector magnitude)
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}} % Scientific Notation with times symbol
+\providecommand{\E}[1]{\ensuremath{10^{#1}}}   % Scientific Notation
+\renewcommand{\u}[1]{\text{ #1}}               % For inserting units in Roman text
+\providecommand{\mc}{\text{,}\hspace{1em}}     % For inserting comma and space into math mode
+\providecommand{\mtxt}[2][]{#1\hspace{0.5em}\text{#2}\hspace{0.5em}}  % For inserting text into math mode with space on either side. Option for preceding punctuation.
 
 % ============= Probability and Statistics =============
 \providecommand{\prob}[1]{\ensuremath{P\!\left(#1\right)} }
@@ -367,14 +367,10 @@
 
 % ============= Vector Calculus =============
 % ------------- Susan Lea's notation ---------------
-\providecommand{\vecs}[1]{\ensuremath{\vec{\bm{#1}}} }  % bolded symbol, arrow
-\providecommand{\vect}[1]{\ensuremath{\vec{\textbf{#1}}} }  % bolded text, arrow
+\providecommand{\vecs}[1]{\ensuremath{\vec{\bm{#1}}} }     % bolded symbol, arrow
+\providecommand{\vect}[1]{\ensuremath{\vec{\textbf{#1}}} } % bolded text, arrow
 \providecommand{\unitvecs}[1]{\bm{\hat{#1}}}
 \providecommand{\unitvect}[1]{\hat{\textbf{#1}}}
 \providecommand{\Div}[1]{\vecs{\del} \cdot \vect{#1}}
 \providecommand{\Curl}[1]{\vecs{\del} \times \vect{#1}}
 \providecommand{\Grad}{\vecs{\del}}
-
-
-
-
