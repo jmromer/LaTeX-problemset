@@ -26,7 +26,7 @@
 \RequirePackage{tabularx}   % For pset heading
 \RequirePackage{float}      % Used for floats (tables, figures, etc.)
 \RequirePackage{graphicx}   % Used for inserting images.
-\RequirePackage{enumerate}  % Used for the enumerate environment.
+\RequirePackage{enumitem}   % Used for the enumerate environment.
 \RequirePackage{mathtools}  % Required. Loads amsmath.
 \RequirePackage{amsthm}     % Required. Used for theorem environments.
 \RequirePackage{amssymb}    % Required.
@@ -336,9 +336,9 @@
 \providecommand{\Int}[4][x]{\ensuremath{\int_{#3}^{#4}\!{#2}\,\mathrm{d}{#1}}}      % Integrate {1} from {2} to {3} with respect to [x]
 \providecommand{\Lim}[3][\infty]{\ensuremath{\displaystyle \lim_{{#2}\to{#1}}\!\!{#3}}} % Take the limit from {1} to [infinity] of {3} \Lim{x}{f(x)}
 \providecommand{\Frac}[2]{\ensuremath{\,^{#1}\!/\!_{#2}}}                        % Slanted fraction with proper spacing. Useful for in-line display of fractions.
-\providecommand{\eval}[3]{
+\providecommand{\eval}[3]{%
   \ensuremath{%
-    \left[#1 \right\rvert_{#2}^{#3}
+    \left\lbrack#1 \right\rvert_{#2}^{#3}
   } % chktex 9
 }%
 \renewcommand{\L}{\left}                       % for left-hand right-sizing  % chktex 43
