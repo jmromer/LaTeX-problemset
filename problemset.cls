@@ -354,6 +354,7 @@
 \renewcommand{\u}[1]{\text{ #1}}               % For inserting units in Roman text
 \providecommand{\mc}{\text{,}\hspace{1em}}     % For inserting comma and space into math mode
 \providecommand{\mtxt}[2][]{#1\hspace{0.5em}\text{#2}\hspace{0.5em}}  % For inserting text into math mode with space on either side. Option for preceding punctuation.
+\providecommand{\nth}{n\text{th}}
 
 % ============= Probability and Statistics =============
 \providecommand{\prob}[1]{\ensuremath{P\!\left(#1\right)} }
