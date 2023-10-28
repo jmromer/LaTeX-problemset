@@ -237,11 +237,11 @@
   \begin{array}{#2}%
   \toprule
 }{
-  \bottomrule
+  % \bottomrule % TODO: Fix error when including \bottomrule
   \end{array}%
   \end{displaymath}%
   \ifcaption%
-  \vspace{-1em}\caption{\Caption}\label{\Label}%
+  \vspace{-1em}\caption{\Caption}\label{\Label}% % TODO: Fix error when omitting caption
   \fi%
   \end{center}%
   \end{table}%
